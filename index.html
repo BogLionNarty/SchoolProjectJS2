@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 2</title>
+    <script src="ListaTowarow.js"></script>
+    <script src="Produkt.js"></script>
+    <script src="Magazyn.js"></script>
+    <script src="Sklep.js"></script>
+    <script src="Zamowienie.js"></script>
+</head>
+<body bgcolor="black">
+    <script>
+        //TEN SKRYPT ZAWIERA TESTY WSZYSTKICH FUNCKCJI W PROGRAMIE I PRZEDSTAWIA JE W KONSOLI
+        //TESTY PRODUKTU
+        console.log("TESTY PRODUKT");
+        let produkt = new Produkt(1, "samochod", "punto", 1499.99, 44, new Date(2001, 4, 1));
+        console.log(produkt.koszt());
+        console.log(produkt.kosztEnergii(2.5));
+        console.log(produkt.wiekProduktu());
+        console.log(produkt.wiekProduktuLata());
+        //TESTY LISTY PRODUKTOW
+        console.log("TESTY LISTA PRODUKTOW");
+        let listaTowarow = new ListaTowarow();
+        console.log("dodawanie produktów");
+        listaTowarow.dodajProdukt(new Produkt(1, "mleko", "uht", 2.50, 0, new Date()));
+        listaTowarow.dodajProdukt(new Produkt(1, "mleko", "uht", 2.50, 0, new Date()));
+        listaTowarow.dodajProdukt(new Produkt(2, "samochod", "punto", 1499.99, 44, new Date(2001, 4, 1)));
+        listaTowarow.dodajProdukt(new Produkt(3, "tablet", "srapple airbook Pro S X n Lite V2", 19999.99, 2, new Date()));
+        listaTowarow.dodajProdukt(new Produkt(4, "majonez", "kielecki", 6.50, 0, new Date(2021, 5, 1)));
+        console.log("wypisanie produktow");
+        listaTowarow.wypiszWszystkieProdukty();
+        console.log("wypisanie produktu istniejacego");
+        listaTowarow.wypiszProdukt(3);
+        console.log("wypisanie produktu nieistniejacego");
+        listaTowarow.wypiszProdukt(9);
+        console.log("zmiana produktu");
+        listaTowarow.zmienProdukt(1, new Produkt(1, "jajko", "uht", 2.50, 0, new Date()));
+        console.log("wypisanie produktow");
+        listaTowarow.wypiszWszystkieProdukty();
+        //TESTY MAGAZYN
+        console.log("TESTY MAGAZYN");
+        console.log("dodawanie produktów");
+        magazyn.dodajProdukt(new Produkt(1, "mleko", "uht", 2.50, 0, new Date()), 2);
+        magazyn.dodajProdukt(new Produkt(1, "mleko", "uht", 2.50, 0, new Date()), 4);
+        magazyn.dodajProdukt(new Produkt(2, "samochod", "punto", 1499.99, 44, new Date(2001, 4, 1)), 999);
+        magazyn.dodajProdukt(new Produkt(3, "tablet", "srapple airbook Pro S X n Lite V2", 19999.99, 2, new Date()), 1999);
+        magazyn.dodajProdukt(new Produkt(4, "majonez", "kielecki", 6.50, 0, new Date(2021, 5, 1)), 54546);
+        console.log("wypisanie produktow");
+        console.log(magazyn.ilosciProduktow);        
+        console.log("zabranie produktu o id 1 test zabrakniecia produktu");
+        magazyn.zabierzProdukt(1);
+        magazyn.zabierzProdukt(1);
+        magazyn.zabierzProdukt(1);
+        magazyn.zabierzProdukt(1);
+        magazyn.zabierzProdukt(1);
+        magazyn.zabierzProdukt(1);
+        magazyn.zabierzProdukt(1);
+        console.log("wypisanie produktow");
+        console.log(magazyn.ilosciProduktow);
+        //TESTY SKLEP
+        console.log("TESTY SKLEP");
+        let sklep = new Sklep();
+        console.log("dodawanie produktów które istnieją na indeksie 1");
+        sklep.dodajProdukt("mleko", "uht", 2.50, 0);
+        sklep.dodajProdukt("mleko", "uht", 2.50, 0);
+        console.log("dodawanie produktu który nie istnieje");
+        sklep.dodajProdukt("masło", "puhate", 25.50, 1);
+        console.log("wypisanie produktow");
+        console.log(magazyn.ilosciProduktow);
+        //TESTY ZAMOWIENIE
+        console.log("TESTY ZAMOWIENIE");
+        let zamowienie = new Zamowienie();
+        console.log("dodawanie produktów do zamowienia");
+        zamowienie.dodajDoZamowienia(1, 3);
+        zamowienie.dodajDoZamowienia(3, 500);
+        console.log("dodawanie produktu ktory nie istnieje");
+        zamowienie.dodajDoZamowienia(9);
+        console.log("realizowanie zamowienia");
+        zamowienie.zrealizujZamowienie();
+        console.log("wypisanie produktow");
+        console.log(magazyn.ilosciProduktow);
+    </script>
+</body>
+</html>
